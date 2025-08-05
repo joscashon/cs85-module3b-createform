@@ -26,10 +26,19 @@
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-    // For now, just display the raw POST data
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
+    // Sanitize each input using htmlspecialchars()
+    $fullname = htmlspecialchars($_POST['fullname']);
+    $email = htmlspecialchars($_POST['email']);
+    $topic = htmlspecialchars($_POST['topic']);
+    $message = htmlspecialchars($_POST['message']);
+
+    // Display the sanitized data
+    echo "<h3>Sanitized Submission:</h3>";
+    echo "<strong>Full Name:</strong> $fullname<br>";
+    echo "<strong>Email Address:</strong> $email<br>";
+    echo "<strong>Topic:</strong> $topic<br>";
+    echo "<strong>Message:</strong> $message<br>";
+
 }
 ?>
 
