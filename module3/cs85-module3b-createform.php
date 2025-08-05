@@ -25,7 +25,12 @@
 </form>
 
 <?php
-// TODO: PHP form handling logic
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+    // For now, just display the raw POST data
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
+}
 ?>
 
 </body>
