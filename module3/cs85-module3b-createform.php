@@ -39,12 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         // Validate email format using raw POST data
         echo "<p style='color:red;'>Please enter a valid email address.</p>";
     } else {
-        // Display the sanitized data
-        echo "<h3>Sanitized Submission:</h3>";
-        echo "<strong>Full Name:</strong> $fullname<br>";
-        echo "<strong>Email Address:</strong> $email<br>";
-        echo "<strong>Topic:</strong> $topic<br>";
-        echo "<strong>Message:</strong> $message<br>";
+        // Match the example output format
+        echo "<p>";
+        echo "Thank you, $fullname! We received your message about: \"$topic\"<br>";
+        echo "We'll get back to you at $email.";
+        echo "</p>";
     }
 }
 ?>
