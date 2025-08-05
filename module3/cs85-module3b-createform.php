@@ -32,13 +32,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $topic = htmlspecialchars($_POST['topic']);
     $message = htmlspecialchars($_POST['message']);
 
-    // Display the sanitized data
-    echo "<h3>Sanitized Submission:</h3>";
-    echo "<strong>Full Name:</strong> $fullname<br>";
-    echo "<strong>Email Address:</strong> $email<br>";
-    echo "<strong>Topic:</strong> $topic<br>";
-    echo "<strong>Message:</strong> $message<br>";
-
+    // Validate that fields are not empty
+    if (empty($fullname) || empty($email) || empty($topic) || empty($message)) {
+        echo "<p style='color:red;'>Please fill in all fields.</p>";
+    } else {
+        // Display the sanitized data
+        echo "<h3>Sanitized Submission:</h3>";
+        echo "<strong>Full Name:</strong> $fullname<br>";
+        echo "<strong>Email Address:</strong> $email<br>";
+        echo "<strong>Topic:</strong> $topic<br>";
+        echo "<strong>Message:</strong> $message<br>";
+    }
 }
 ?>
 
