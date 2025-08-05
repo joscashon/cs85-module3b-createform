@@ -1,3 +1,4 @@
+<!-- Jos Cashon -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +26,8 @@
 </form>
 
 <?php
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     // Sanitize each input using htmlspecialchars()
     $fullname = htmlspecialchars($_POST['fullname']);
@@ -46,6 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         echo "</p>";
     }
 }
+/*
+ I expect $_POST to contain keys: fullname, email, topic, message, submit
+ Output should show a thank you message with my input values
+ After testing: Everything worked as expected. If I left a field blank, I got the error message.
+ However, in order to test the blank field validation I had to remove the 'required' attribute
+ from the HTML form inputs to prevent the browser from blocking the submission. Same with the email
+ validation, I had to set the email input to type="text" instead of type="email" to allow
+ testing with invalid email formats.
+*/
 ?>
 
 </body>
