@@ -35,6 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     // Validate that fields are not empty
     if (empty($fullname) || empty($email) || empty($topic) || empty($message)) {
         echo "<p style='color:red;'>Please fill in all fields.</p>";
+    } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        // Validate email format using raw POST data
+        echo "<p style='color:red;'>Please enter a valid email address.</p>";
     } else {
         // Display the sanitized data
         echo "<h3>Sanitized Submission:</h3>";
